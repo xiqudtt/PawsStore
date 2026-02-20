@@ -2,9 +2,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-white);
+  background-color: #ffffff;
   height: 80px;
-  border-bottom: 1px solid var(--color-white);
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .container {
@@ -26,7 +26,7 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  background-color: var(--color-orange-500);
+  background-color: #FF6900;
   border-radius: 50%;
 }
 
@@ -37,8 +37,8 @@
 }
 
 .logo {
-  font-size: var(--text-xl);
-  font-weight: var(--font-weight-semibold);
+  font-size: 24px;
+  font-weight: 700;
   color: #000000;
   letter-spacing: -0.5px;
 }
@@ -51,14 +51,14 @@
 
 .nav-menu a {
   text-decoration: none;
-  color: var(--color-gray-700);
-  font-weight: var(--font-weight-normal);
+  color: #333;
+  font-weight: 500;
   font-size: 16px;
   transition: color 0.2s ease;
 }
 
 .nav-menu a:hover {
-  color: var(--color-orange-500);
+  color: #FF6900;
 }
 
 .actions {
