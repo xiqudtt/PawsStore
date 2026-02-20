@@ -1,0 +1,25 @@
+.about{
+	display: flex;
+	justify-content: center;
+	background-image: var(--color-gradient);
+	height: 204px;
+	color: var(--color-orange-50);
+}
+.about-text{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 1280px;
+}
+.all-product{
+	gap: 8px;
+	padding: 0 32px;
+	font-size: var(--text-4xl);
+	margin-bottom: 8px;
+}
+
+.discover{
+	padding: 0 32px;
+	font-size: var(--text-lg);
+
+}
