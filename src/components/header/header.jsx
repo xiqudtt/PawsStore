@@ -1,5 +1,5 @@
 import { LuPawPrint } from "react-icons/lu";
-import { SlMagnifier } from "react-icons/sl";
+import { RiSearchLine } from "react-icons/ri";
 import { LuShoppingCart } from "react-icons/lu";
 import "./header.css"
 
@@ -20,7 +20,7 @@ export const Header = () => {
           <a href="#">About</a>
         </nav>
         <div className="actions">
-          <SlMagnifier className="search-icon"/>
+          <RiSearchLine className="search-icon"/>
           <LuShoppingCart className="cart-icon"/>
         </div>
       </div>
