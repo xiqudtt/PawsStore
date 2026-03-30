@@ -11,7 +11,7 @@ export const Header = () => {
           <div className="circle">
             <LuPawPrint className="LuPawPrint"/>
           </div>
-          <div className="logo">PawsStore</div>
+          <div className="header-logo">PawsStore</div>
         </div>
         <nav className="nav-menu">
           <a href="#">Shop</a>
