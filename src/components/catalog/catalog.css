@@ -1,0 +1,235 @@
+.catalog__inner {
+    display: grid;
+    grid-template-areas: 'filter search' 'filter products';
+    gap: 24px;
+    grid-template-columns: 256px 1fr;
+    padding: 32px 0;
+}
+
+/*
+==========================================================
+    CATALOG FILTER
+==========================================================
+*/
+
+.catalog__filter {
+    grid-area: filter;
+    align-self: start;
+    padding: 25px;
+    background-color: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+}
+
+.catalog__filter-logo {
+    margin-bottom: 24px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 28px;
+    color: #101828;
+}
+
+.catalog__filter-title {
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+    color: #101828;
+}
+
+.catalog__filter-rating {
+    margin-bottom: 24px;
+}
+
+.catalog__filter-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.catalog__filter-checkbox:not(:last-child) {
+    margin-bottom: 12px;
+}
+
+.catalog__filter-input {
+    border: 1px solid #0000001A !important;
+    background-color: #F3F3F5 !important;
+}
+
+.catalog__filter-text {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #364153;
+}
+
+.catalog__filter-range {
+    display: flex;
+    gap: 12px;
+}
+
+.catalog__filter-min, 
+.catalog__filter-max {
+    position: relative;
+}
+
+.catalog__filter-min::before, 
+.catalog__filter-max::before {
+    content: '$';
+    position: absolute;
+    width: 11px;
+    height: 24px;
+    font-size: 16px;
+    color: #6A7282;
+    z-index: 10;
+    top: 30px;
+    left: 12px;
+}
+
+.catalog__filter-size {
+    margin-bottom: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    color: #4A5565;
+}
+
+.catalog__filter-count {
+    position: relative;
+    max-width: 88px;
+    min-height: 42px;
+    padding: 9px 28px;
+    border: 1px solid #6A7282;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #0A0A0A;
+    outline: none;
+}
+
+/*
+==========================================================
+    CATALOG SEARCH
+==========================================================
+*/
+
+.catalog__search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-area: search;
+    padding: 16px;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+.catalog__sort {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.catalog__sort-select {
+    padding: 12px 7px;
+    border: none;
+    border-radius: 8px;
+    background-color: #F3F3F5;
+    outline: none;
+}
+
+/*
+==========================================================
+    CATALOG PRODUCTS/CARDS
+==========================================================
+*/
+
+.catalog__cards {
+    grid-area: products;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.catalog__cards-item {
+    border: 1px solid #E5E7EB;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.catalog__cards-presentation {
+    position: relative;
+    min-height: 364px;
+    margin-bottom: 18px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.catalog__cards-presentation--1 {
+    background-image: url('./img/image1.jpg');
+}
+
+.catalog__cards-presentation--2 {
+    background-image: url('./img/image2.png');
+}
+
+.catalog__cards-presentation--3 {
+    background-image: url('./img/image3.jpg');
+}
+
+.catalog__cards-presentation--4 {
+    background-image: url('./img/image4.jpg');
+}
+
+.catalog__cards-price {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 75px;
+    padding: 8px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #FFFFFF;
+    background-color: #FF6900;
+    text-align: center;
+    box-shadow: 0px 4px 6px -4px rgba(0, 0, 0, 0.1), 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.catalog__cards-title {
+    margin-left: 16px;
+    margin-bottom: 25.5px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #101828;
+}
+
+.catalog__rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+}
+
+.catalog__rating-icons {
+    display: flex;
+    gap: 4px;
+}
+
+.catalog__rating-icon {
+    color: #FDC700;
+    width: 14px;
+    height: 14px;
+}
+
+.catalog__rating-count{
+    margin-left: 5px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    color: #6A7282;
+}
