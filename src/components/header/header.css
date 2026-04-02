@@ -1,73 +1,68 @@
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: var(--color-white);
-  height: 80px;
   border-bottom: 1px solid var(--color-white);
+  padding: 20px 0;
 }
 
-.container {
-  width: 1216px;
+.header__inner {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
-.logo-section {
+.header__logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
 }
 
-.circle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: var(--color-orange-500);
+.header__logo-border {
+  padding: 6px;
   border-radius: 50%;
+  background-color: var(--color-orange-500);
 }
 
-.LuPawPrint {
-  width: 24px;
+.header__logo-icon {
+  width: 28px;
   height: 24px;
   color: #ffffff;
 }
 
-.header-logo {
+.header__logo-text {
   font-size: var(--text-xl);
   font-weight: var(--font-weight-semibold);
   color: #000000;
   letter-spacing: -0.5px;
 }
 
-.nav-menu {
+.header__menu-list {
   display: flex;
-  gap: 32px;
-  margin-left: -50px;
+  gap: 30px;
+  list-style: none;
 }
 
-.nav-menu a {
-  text-decoration: none;
-  color: var(--color-gray-700);
-  font-weight: var(--font-weight-normal);
+.header__menu-item {
   font-size: 16px;
+  font-weight: var(--font-weight-normal);
+}
+
+.header__menu-link {
+  color: var(--color-gray-700);
+  text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.nav-menu a:hover {
+.header__menu-link:hover {
   color: var(--color-orange-500);
 }
 
-.actions {
+.header__actions {
   display: flex;
   align-items: center;
   gap: 32px;
 }
 
-.search-icon, .cart-icon {
+.header__actions-icon {
   width: 20px;
   height: 20px;
   color: #333;

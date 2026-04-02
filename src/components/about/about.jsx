@@ -1,16 +1,16 @@
 import "./about.css"
 
-export const About = () => {
+const About = () => {
 	return (
 		<section className="about">
-			<div className="about-text">
-				<h1 className="all-product">
-					Shop All Products
-				</h1>
-				<p className="discover">
-					Discover the best products for your furry friends
-				</p>
+			<div className="container">
+				<div className="about__inner">
+					<h1 className="about__title">Shop All Products</h1>
+					<p className="about__text">Discover the best products for your furry friends</p>
+				</div>
 			</div>
 		</section>
 	);
 }
+
+export default About;
