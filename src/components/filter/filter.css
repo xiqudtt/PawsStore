@@ -1,0 +1,16 @@
+.catalog__filter {
+    grid-area: filter;
+    align-self: start;
+    padding: 25px;
+    background-color: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+}
+
+.catalog__filter-logo {
+    margin-bottom: 24px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 28px;
+    color: #101828;
+}

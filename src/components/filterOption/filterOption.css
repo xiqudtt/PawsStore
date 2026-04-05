@@ -1,0 +1,11 @@
+.catalog__filter-option:not(:last-child) {
+    margin-bottom: 24px;
+}
+
+.catalog__filter-title {
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+    color: #101828;
+}

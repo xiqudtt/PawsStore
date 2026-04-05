@@ -1,0 +1,8 @@
+.catalog__inner {
+    display: grid;
+    grid-template-areas: 'filter sorting' 'filter products';
+    gap: 24px;
+    grid-template-columns: 256px 1fr;
+    grid-template-rows: 70px 1fr;
+    padding: 32px 0;
+}
