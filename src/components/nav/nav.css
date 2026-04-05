@@ -1,0 +1,20 @@
+.header__menu-list {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.header__menu-item {
+  font-size: 16px;
+  font-weight: var(--font-weight-normal);
+}
+
+.header__menu-link {
+  color: var(--color-gray-700);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.header__menu-link:hover {
+  color: var(--color-orange-500);
+}

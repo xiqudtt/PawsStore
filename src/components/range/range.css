@@ -1,0 +1,47 @@
+.catalog__filter-range {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.catalog__filter-min,
+.catalog__filter-max {
+    position: relative;
+}
+
+.catalog__filter-min::before,
+.catalog__filter-max::before {
+    content: '$';
+    position: absolute;
+    width: 11px;
+    height: 24px;
+    font-size: 16px;
+    color: #6A7282;
+    z-index: 10;
+    top: 30px;
+    left: 12px;
+}
+
+.catalog__filter-blank {
+    margin-top: 30px;
+}
+
+.catalog__filter-size {
+    margin-bottom: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    color: #4A5565;
+}
+
+.catalog__filter-count {
+    position: relative;
+    max-width: 88px;
+    min-height: 42px;
+    padding: 9px 28px;
+    border: 1px solid #6A7282;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #0A0A0A;
+    outline: none;
+}
