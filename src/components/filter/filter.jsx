@@ -1,10 +1,14 @@
 import './filter.css';
 import FilterOption from '../filterOption/filterOption.jsx';
+import { FiX } from "react-icons/fi";
 
-const Filter = ({ filters, setFilters }) => {
+const Filter = ({ filters, setFilters, toggleFilter, setToggleFilter }) => {
     return (
-        <div className="catalog__filter">
-            <h2 className="catalog__filter-logo">Filters</h2>
+        <div className={"catalog__filter " + (toggleFilter ? "catalog__filter--active" : "")}>
+            <div className="catalog__filter-top">
+                <h2 className="catalog__filter-logo">Filters</h2>
+                <FiX className="catalog__filter-icon" onClick={() => setToggleFilter(false)} />
+            </div>
             <div className="catalog__filter-options">
                 <FilterOption type="checkbox" title="Rating" filters={filters} setFilters={setFilters} />
                 <FilterOption type="range" title="Price Range" filters={filters} setFilters={setFilters} />

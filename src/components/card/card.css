@@ -12,9 +12,12 @@
 
 .catalog__cards-presentation {
     position: relative;
-    height: 364px;
-    margin-bottom: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    aspect-ratio: 4 / 5;
     padding: 12px;
+    margin-bottom: 18px;
     border: 1px solid #E5E7EB;  
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -49,9 +52,9 @@
 .catalog__info {
     opacity: 0;
     visibility: hidden;
-    max-width: 260px;
+    width: 100%;
     padding: 12px;
-    margin-top: 190px;
+    margin-bottom: 12px;
     border-radius: 10px;
     background-color: #fff;
     transition: all .3s ease;
@@ -167,4 +170,8 @@
     font-weight: 400;
     line-height: 16px;
     color: #6A7282;
+} 
+
+@media (max-width: 1024px) {
+    
 }

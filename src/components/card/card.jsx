@@ -1,4 +1,3 @@
-import React from 'react'
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { LuShoppingCart } from "react-icons/lu";
 import './card.css';

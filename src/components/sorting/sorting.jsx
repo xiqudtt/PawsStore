@@ -1,11 +1,17 @@
-import React, { useEffect, useState } from 'react'
 import './sorting.css';
+import { FiSliders } from "react-icons/fi";
 
-const Sorting = ({ count, sortType, setSortType }) => {
+const Sorting = ({ count, sortType, setSortType, toggleFilter, setToggleFilter }) => {
 
     return (
         <div className="catalog__sorting">
-            <p className="catalog__sorting-count">{count} products</p>
+            <div className="catalog__sorting-left-side">
+                <button className={"catalog__sorting-button " + (toggleFilter ? "catalog__sorting-button--active" : "")} onClick={() => setToggleFilter(!toggleFilter)}>
+                    <FiSliders className="catalog__sorting-icon" />
+                    <h2 className="catalog__sorting-title">Filters</h2>
+                </button>
+                <p className="catalog__sorting-count">{count} products</p>
+            </div>
             <div className="catalog__sort">
                 <p className="catalog__sort-title">Sort by:</p>
                 <div className="catalog__sort-select-wrapper">
@@ -18,7 +24,7 @@ const Sorting = ({ count, sortType, setSortType }) => {
             </div>
         </div>
     )
-    
+
 }
 
 export default Sorting;

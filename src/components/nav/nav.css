@@ -2,6 +2,7 @@
   display: flex;
   gap: 30px;
   list-style: none;
+  justify-content: center;
 }
 
 .header__menu-item {
@@ -17,4 +18,10 @@
 
 .header__menu-link:hover {
   color: var(--color-orange-500);
+}
+
+@media (max-width: 1024px) {
+  .header__menu {
+    display: none;
+  }
 }

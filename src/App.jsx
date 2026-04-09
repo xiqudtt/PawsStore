@@ -4,7 +4,7 @@ import About from './components/about/about.jsx';
 import Footer from './components/footer/footer.jsx';
 import Catalog from './components/catalog/catalog.jsx';
 
-function App() {
+const App = () => {
   return (
     <div className="wrapper">
       <Header />

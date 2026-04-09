@@ -26,7 +26,9 @@ const Catalog = () => {
         priceRange: { min: 0, max: 100 }
     });
 
-    const [sortType, setSortType] = useState('name');
+    const [toggleFilter, setToggleFilter] = useState(false);
+
+    const [sortType, setSortType] = useState("name");
 
     const filteredAndSortedProds = useMemo(() => {
         let result = [...cards];
@@ -54,8 +56,19 @@ const Catalog = () => {
         <section className="catalog">
             <div className="container">
                 <div className="catalog__inner">
-                    <Filter filters={filters} setFilters={setFilters} />
-                    <Sorting count={filteredAndSortedProds.length} sortType={sortType} setSortType={setSortType} />
+                    <Filter
+                        filters={filters}
+                        setFilters={setFilters}
+                        toggleFilter={toggleFilter}
+                        setToggleFilter={setToggleFilter}
+                    />
+                    <Sorting
+                        count={filteredAndSortedProds.length}
+                        sortType={sortType}
+                        setSortType={setSortType}
+                        toggleFilter={toggleFilter}
+                        setToggleFilter={setToggleFilter}
+                    />
                     <Products prods={filteredAndSortedProds} />
                 </div>
             </div>

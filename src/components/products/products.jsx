@@ -1,4 +1,3 @@
-import React from 'react'
 import './products.css';
 import Card from '../card/card.jsx';
 
