@@ -1,6 +1,6 @@
-import './filterOption.css';
 import Checkbox from '../checkbox/checkbox.jsx';
 import Range from '../range/range.jsx';
+import './filterOption.css';
 
 const FilterOption = ({ title, filters, setFilters, type }) => {
     let content = "";
@@ -12,8 +12,8 @@ const FilterOption = ({ title, filters, setFilters, type }) => {
                     key={val}
                     value={val}
                     option={`${val}+ Stars`}
-                    activeRating={filters.rating}
-                    setRating={(newVal) => setFilters(prev => ({ ...prev, rating: newVal }))}
+                    filters={filters}
+                    setFilters={setFilters}
                 />
             ));
             break;
@@ -30,9 +30,7 @@ const FilterOption = ({ title, filters, setFilters, type }) => {
     return (
         <div className="catalog__filter-option">
             <h3 className="catalog__filter-title">{title}</h3>
-            <div className="catalog__filter-type">
-                {content}
-            </div>
+            <div className="catalog__filter-type">{content}</div>
         </div>
     )
 }

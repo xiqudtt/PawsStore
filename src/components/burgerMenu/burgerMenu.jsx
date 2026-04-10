@@ -1,5 +1,5 @@
-import "./burgerMenu.css";
 import Nav from "../nav/nav.jsx";
+import "./burgerMenu.css";
 
 const BurgerMenu = ({ toggleBurger }) => {
     return (

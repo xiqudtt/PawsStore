@@ -1,6 +1,6 @@
-import './filter.css';
-import FilterOption from '../filterOption/filterOption.jsx';
 import { FiX } from "react-icons/fi";
+import FilterOption from '../filterOption/filterOption.jsx';
+import './filter.css';
 
 const Filter = ({ filters, setFilters, toggleFilter, setToggleFilter }) => {
     return (

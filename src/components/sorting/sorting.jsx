@@ -16,9 +16,10 @@ const Sorting = ({ count, sortType, setSortType, toggleFilter, setToggleFilter }
                 <p className="catalog__sort-title">Sort by:</p>
                 <div className="catalog__sort-select-wrapper">
                     <select value={sortType} onChange={(e) => setSortType(e.target.value)} className="catalog__sort-select">
-                        <option value="name" className="catalog__sort-option">Name (A-Z)</option>
-                        <option value="rating" className="catalog__sort-option">Rating (0-5)</option>
-                        <option value="price" className="catalog__sort-option">Price</option>
+                        <option value="name(a-z)" className="catalog__sort-option">Name (A-Z)</option>
+                        <option value="name(z-a)" className="catalog__sort-option">Name (Z-A)</option>
+                        <option value="priceLowToHigh" className="catalog__sort-option">Price (Low to High)</option>
+                        <option value="priceHighToLow" className="catalog__sort-option">Price (High to Low)</option>
                     </select>
                 </div>
             </div>

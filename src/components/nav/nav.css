@@ -1,17 +1,16 @@
 .header__menu-list {
   display: flex;
-  gap: 30px;
+  gap: 32px;
   list-style: none;
   justify-content: center;
 }
 
-.header__menu-item {
-  font-size: 16px;
-  font-weight: var(--font-weight-normal);
-}
-
 .header__menu-link {
-  color: var(--color-gray-700);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.31px;
+  color: #364153;
   text-decoration: none;
   transition: color 0.2s ease;
 }

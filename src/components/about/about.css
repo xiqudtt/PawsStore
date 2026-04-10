@@ -1,23 +1,36 @@
 .about {
-	background-image: var(--color-gradient);
+	background-image: var(--gradient);
 }
 
 .about__inner {
 	padding: 64px 0;
-	color: #FFFFFF;
 }
 
 .about__title {
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 40px;
+	letter-spacing: 0.37px;
 	margin-bottom: 8px;
-	font-size: var(--text-4xl);
+	color: var(--light1);
 }
 
 .about__text {
-	font-size: var(--text-lg);
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 28px;
+	letter-spacing: -0.44px;
+	color: var(--light2);
 }
 
 @media (max-width: 1024px) {
 	.about__inner {
 		padding: 48px 0;
+	}
+
+	.about__title {
+		font-size: 30px;
+		line-height: 36px;
+		letter-spacing: 0.40px;
 	}
 }

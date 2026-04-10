@@ -1,10 +1,12 @@
 .catalog__filter {
+    position: sticky;
+    top: 95px;
     grid-area: filter;
     align-self: start;
     padding: 25px;
     margin-right: 8px;
-    background-color: #fff;
-    border: 1px solid #E5E7EB;
+    background-color: var(--light1);
+    border: 1px solid var(--light4);
     border-radius: 10px;
 }
 
@@ -19,10 +21,11 @@
     font-size: 18px;
     font-weight: 600;
     line-height: 28px;
-    color: #101828;
+    color: var(--dark2);
 }
 
 .catalog__filter-icon {
+    display: none;
     width: 20px;
     height: 20px;
     cursor: pointer;
@@ -30,12 +33,17 @@
 
 @media (max-width: 1024px) {
     .catalog__filter {
+        position: static;
         display: none;
         margin-right: 0;
         margin: 12px 0;
     }
 
     .catalog__filter.catalog__filter--active {
+        display: block;
+    }
+
+    .catalog__filter-icon {
         display: block;
     }
     

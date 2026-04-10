@@ -2,10 +2,10 @@ import { useState } from "react";
 import { LuPawPrint } from "react-icons/lu";
 import { RiSearchLine } from "react-icons/ri";
 import { LuShoppingCart } from "react-icons/lu";
-import "./header.css"
 import Nav from '../nav/nav.jsx';
 import Burger from "../burger/burger.jsx";
 import BurgerMenu from "../burgerMenu/burgerMenu.jsx";
+import "./header.css"
 
 const Header = () => {
   const [toggleBurger, setToggleBurger] = useState(false);
@@ -22,9 +22,15 @@ const Header = () => {
           </div >
           <Nav />
           <div className="header__actions">
-            <RiSearchLine className="header__actions-icon" />
-            <LuShoppingCart className="header__actions-icon" />
-            <Burger toggleBurger={toggleBurger} setToggleBurger={setToggleBurger} />
+            <div className="header__actions-border">
+              <RiSearchLine className="header__actions-icon" />
+            </div>
+            <div className="header__actions-border">
+              <LuShoppingCart className="header__actions-icon" />
+            </div>
+            <div className="header__actions-border header__actions-border--burger" onClick={() => setToggleBurger(!toggleBurger)}>
+              <Burger toggleBurger={toggleBurger} setToggleBurger={setToggleBurger} />
+            </div>
           </div>
         </div>
         <BurgerMenu toggleBurger={toggleBurger} />

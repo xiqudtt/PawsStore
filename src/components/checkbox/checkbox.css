@@ -24,11 +24,18 @@
 
 .catalog__filter-input:checked::after {
     content: "✓";
-    font-size: 16px;
-    color: #6A7282;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 7px;
+    left: 7px;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--light1);
+    background-color: var(--dark1);
     transform: translate(-50%, -50%);
 }
 
@@ -36,5 +43,5 @@
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
-    color: #364153;
+    color: var(--dark3);
 }
