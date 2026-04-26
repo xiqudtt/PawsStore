@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './pages/Home.jsx';
 import Product from "./pages/Product.jsx";
+import Cart from "./pages/Cart.jsx";
 import './App.css';
 
 // позже перепишем в виде get-запроса
@@ -80,6 +81,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home cards={cards}/>} />
           <Route path="/product/:id" element={<Product cards={cards}/>} />
+          <Route path="/Cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
     </div>
