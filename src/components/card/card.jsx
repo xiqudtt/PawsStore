@@ -1,8 +1,11 @@
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { LuShoppingCart } from "react-icons/lu";
 import './card.css';
+import { usePopup } from '../../App'; 
 
 const Card = ({ onClick, price, title, img, rating }) => {
+    const { showAddToCartPopup } = usePopup();
+
     const normalizedRating = Math.min(5, Math.max(0, rating));
     const roundedRating = Math.round(normalizedRating * 2) / 2;
     const fullStars = Math.floor(roundedRating);
@@ -10,41 +13,41 @@ const Card = ({ onClick, price, title, img, rating }) => {
     const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
     const HalfStar = ({ iconClass = "catalog__info-icon" }) => (
-    <span className="half-star-clip" style={{ 
-        position: 'relative', 
-        display: 'inline-flex', 
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '14px', 
-        height: '14px' 
-    }}>
-        <AiFillStar 
-            className={iconClass} 
-            style={{ 
-                clipPath: 'inset(0 50% 0 0)',
-                width: '100%',
-                height: '100%',
-                display: 'block'
-            }}
-        />
-    </span>
-);
+        <span className="half-star-clip" style={{
+            position: 'relative',
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '14px',
+            height: '14px'
+        }}>
+            <AiFillStar
+                className={iconClass}
+                style={{
+                    clipPath: 'inset(0 50% 0 0)',
+                    width: '100%',
+                    height: '100%',
+                    display: 'block'
+                }}
+            />
+        </span>
+    );
 
     const renderStars = (iconClass = "catalog__info-icon") => {
         const stars = [];
-        
+
         for (let i = 0; i < fullStars; i++) {
             stars.push(<AiFillStar key={`full-${i}`} className={iconClass} />);
         }
-        
+
         if (hasHalfStar) {
             stars.push(<HalfStar key="half" iconClass={iconClass} />);
         }
-        
+
         for (let i = 0; i < emptyStars; i++) {
             stars.push(<AiOutlineStar key={`empty-${i}`} className={iconClass} />);
         }
-        
+
         return stars;
     };
 
@@ -64,7 +67,7 @@ const Card = ({ onClick, price, title, img, rating }) => {
                         </div>
                         <div className="catalog__info-bottom">
                             <p className="catalog__info-price">${price}</p>
-                            <button className="catalog__info-btn">
+                            <button className="catalog__info-btn" onClick={() => showAddToCartPopup(title)}>
                                 <LuShoppingCart className="catalog__info-img" />
                             </button>
                         </div>
