@@ -136,3 +136,139 @@
     letter-spacing: -0.15px;
     color: #00A63E;
 }
+
+@media (max-width: 768px) {
+    .progress {
+        padding-block: 20px;
+    }
+
+    .progress__steps {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 16px;
+    }
+
+    .progress__steps-title {
+        font-size: 28px;
+        line-height: 36px;
+        margin-bottom: 4px;
+    }
+
+    .progress__steps-text {
+        font-size: 14px;
+    }
+
+    .progress__steps-list {
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .progress__steps-name {
+        font-size: 14px;
+    }
+
+    .progress__steps-border {
+        width: 32px;
+        height: 32px;
+    }
+
+    .progress__steps-num {
+        font-size: 14px;
+    }
+
+    .progress__steps-svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .progress__promotion {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .progress__promotion-left {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .progress {
+        padding-block: 16px;
+    }
+
+    .progress__steps-title {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .progress__steps-text {
+        font-size: 12px;
+    }
+
+    .progress__steps-name {
+        font-size: 14px;
+    }
+
+    .progress__steps-border {
+        width: 32px;
+        height: 32px;
+    }
+
+    .progress__steps-num {
+        font-size: 14px;
+    }
+
+    .progress__steps-svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    .progress__steps-list {
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .progress__steps-item,
+    .progress__steps-item--active {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .progress__steps-svg {
+        display: none;
+    }
+
+    .progress__steps-name {
+        font-size: 12px;
+    }
+
+    .progress__steps-border {
+        width: 28px;
+        height: 28px;
+    }
+
+    .progress__steps-num {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 280px) {
+    .progress__steps-name {
+        font-size: 10px;
+    }
+
+    .progress__steps-border {
+        width: 24px;
+        height: 24px;
+    }
+
+    .progress__steps-num {
+        font-size: 10px;
+    }
+}

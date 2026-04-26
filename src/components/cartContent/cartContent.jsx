@@ -12,7 +12,7 @@ const CartContent = ({ cards }) => {
                 <div className="cart__inner">
                     <ul className="cart__prods-list">
                         {cards.map((card, idx) =>
-                            <li key={idx} className="cart__prods-item">
+                            <li key={card.id || idx} className="cart__prods-item">
                                 <img className="cart__prods-img" src={card.img[0]} alt="" />
                                 <div className="cart__prods-info">
                                     <h3 className="cart__prods-title">{card.title}</h3>

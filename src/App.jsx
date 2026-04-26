@@ -9,6 +9,7 @@ import img1 from "./img/image1.jpg";
 import img2 from "./img/image2.png";
 import img3 from "./img/image3.jpg";
 import img4 from "./img/image4.jpg";
+import EmptyCart from "./components/emptyCart/emptyCart.jsx";
 
 // позже перепишем в виде get-запроса
 const cards = [
