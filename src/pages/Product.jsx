@@ -12,8 +12,8 @@ const Product = ({ cards }) => {
         <React.Fragment>
             <Header />
             <main className="main">
-						<Prod prod={product}></Prod>
-						</main>
+                <Prod prod={product}></Prod>
+            </main>
             <Footer />
         </React.Fragment>
     )

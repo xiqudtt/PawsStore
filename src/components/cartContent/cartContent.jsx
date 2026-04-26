@@ -1,29 +1,51 @@
 import "./cartContent.css";
 import React from 'react';
+import Counter from "../counter/counter";
 import { HiOutlineTag } from "react-icons/hi2";
 import { LuTrash2 } from "react-icons/lu";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { HiOutlineLocationMarker, HiOutlineCreditCard } from "react-icons/hi";
+import { useCart } from "../../contexts/CartContext";
 
-const CartContent = ({ cards }) => {
+const CartContent = ({ prods }) => {
+    const { setProds } = useCart();
+
+    const updateQuantity = (id, delta) => {
+        setProds(prev => prev.map(p => {
+            if (p.id === id) {
+                const newQty = p.quantity + delta;
+                return { ...p, quantity: newQty > 0 ? newQty : 1 }; // Не даем упасть меньше 1
+            }
+            return p;
+        }));
+    };
+
+    const subtotal = prods.reduce((acc, prod) => acc + (prod.price * (prod.quantity || 1)), 0);
+    const tax = subtotal * 0.08;
+    const total = subtotal + tax;
+    const totalItems = prods.reduce((acc, prod) => acc + (prod.quantity || 1), 0);
+
     return (
         <div className="cart">
             <div className="container">
                 <div className="cart__inner">
                     <ul className="cart__prods-list">
-                        {cards.map((card, idx) =>
-                            <li key={card.id || idx} className="cart__prods-item">
-                                <img className="cart__prods-img" src={card.img[0]} alt="" />
-                                <div className="cart__prods-info">
-                                    <h3 className="cart__prods-title">{card.title}</h3>
-                                    <p className="cart__prods-text">Toys & Scratchers</p>
+                        {prods.map((prod, idx) =>
+                            <li key={prod.id || idx} className="cart__prods-item">
+                                <div className="cart__prods-box">
+                                    <img className="cart__prods-img" src={prod.img[0]} alt="" />
+                                    <div className="cart__prods-info">
+                                        <h3 className="cart__prods-title">{prod.title}</h3>
+                                        <p className="cart__prods-text">Toys & Scratchers</p>
+                                    </div>
                                 </div>
+                                <Counter count={prod.quantity || 1} increment={() => updateQuantity(prod.id, 1)} decrement={() => updateQuantity(prod.id, -1)} />
                                 <div className="cart__prods-price">
-                                    <p className="cart__prods-price-text1">${card.price}</p>
-                                    <p className="cart__prods-price-text2">${card.price} each</p>
+                                    <p className="cart__prods-price-text1">${prod.price}</p>
+                                    <p className="cart__prods-price-text2">${prod.price} each</p>
                                 </div>
                                 <button className="cart__prods-remove">
-                                    <LuTrash2 className="cart__prods-icon"/>
+                                    <LuTrash2 className="cart__prods-icon" onClick={() => setProds(prevProds => prevProds.filter(p => p.id !== prod.id))} />
                                 </button>
                             </li>
                         )}

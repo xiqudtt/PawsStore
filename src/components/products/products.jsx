@@ -8,13 +8,7 @@ const Products = ({ prods }) => {
     return (
         <div className="catalog__cards">
             {prods.map(prod => 
-                <Card onClick={() => navigate(`/product/${prod.id}`)} 
-                      key={prod.id} 
-                      price={prod.price} 
-                      title={prod.title} 
-                      img={prod.img[0]} 
-                      rating={prod.rating} 
-                />)}
+                <Card onClick={() => navigate(`/product/${prod.id}`)} key={prod.id} prod={prod} />)}
         </div>
     )
 }

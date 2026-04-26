@@ -4,9 +4,13 @@ import CartProgress from '../components/cartProgress/cartProgress';
 import CartContent from '../components/cartContent/cartContent';
 import EmptyCart from '../components/emptyCart/emptyCart';
 import Footer from '../components/footer/footer';
+import { useCart } from '../contexts/CartContext';
 
-const Cart = ({ cards }) => {
-    const hasItems = cards && cards.length > 0;
+const Cart = () => {
+    let { prods } = useCart();
+
+    const hasItems = prods && prods.length > 0;
+    console.log(prods);
 
     return (
         <React.Fragment>
@@ -15,7 +19,7 @@ const Cart = ({ cards }) => {
                 {hasItems ? (
                     <>
                         <CartProgress />
-                        <CartContent cards={cards} />
+                        <CartContent prods={prods} />
                     </>
                 ) : (
                     <EmptyCart />

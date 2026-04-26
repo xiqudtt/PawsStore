@@ -1,12 +1,32 @@
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { LuShoppingCart } from "react-icons/lu";
 import './card.css';
-import { usePopup } from '../../App'; 
+import { usePopup } from "../../contexts/PopupContext";
+import { useCart } from "../../contexts/CartContext";
 
-const Card = ({ onClick, price, title, img, rating }) => {
+
+const Card = ({ onClick, prod }) => {
     const { showAddToCartPopup } = usePopup();
+    const { prods, setProds } = useCart();
 
-    const normalizedRating = Math.min(5, Math.max(0, rating));
+    const cartOnClick = (e) => {
+        e.stopPropagation();
+        showAddToCartPopup(prod.title)
+        setProds(prevProds => {
+
+            const existingProd = prevProds.find(p => p.id === prod.id);
+
+            if (existingProd) {
+                return prevProds.map(p =>
+                    p.id === prod.id ? { ...p, quantity: p.quantity + 1 } : p
+                );
+            }
+
+            return [...prevProds, { ...prod, quantity: 1 }];
+        });
+    }
+
+    const normalizedRating = Math.min(5, Math.max(0, prod.rating));
     const roundedRating = Math.round(normalizedRating * 2) / 2;
     const fullStars = Math.floor(roundedRating);
     const hasHalfStar = roundedRating % 1 !== 0;
@@ -54,20 +74,20 @@ const Card = ({ onClick, price, title, img, rating }) => {
     return (
         <div className="catalog__cards-item" onClick={onClick}>
             <div className="catalog__cards-top">
-                <img className="catalog__cards-img" src={img} alt="" />
-                <p className="catalog__cards-price">${price}</p>
+                <img className="catalog__cards-img" src={prod.img[0]} alt="" />
+                <p className="catalog__cards-price">${prod.price}</p>
                 <div className="catalog__info">
                     <div className="catalog__info-inner">
-                        <h3 className="catalog__info-title">{title}</h3>
+                        <h3 className="catalog__info-title">{prod.title}</h3>
                         <div className="catalog__info-rating">
                             <div className="catalog__info-icons">
                                 {renderStars()}
                             </div>
-                            <p className="catalog__info-text">({rating})</p>
+                            <p className="catalog__info-text">({prod.rating})</p>
                         </div>
                         <div className="catalog__info-bottom">
-                            <p className="catalog__info-price">${price}</p>
-                            <button className="catalog__info-btn" onClick={() => showAddToCartPopup(title)}>
+                            <p className="catalog__info-price">${prod.price}</p>
+                            <button className="catalog__info-btn" onClick={cartOnClick}>
                                 <LuShoppingCart className="catalog__info-img" />
                             </button>
                         </div>
@@ -75,12 +95,12 @@ const Card = ({ onClick, price, title, img, rating }) => {
                 </div>
             </div>
             <div className="catalog__cards-bottom">
-                <h2 className="catalog__cards-title">{title}</h2>
+                <h2 className="catalog__cards-title">{prod.title}</h2>
                 <div className="catalog__rating">
                     <div className="catalog__rating-icons">
                         {renderStars("catalog__rating-icon")}
                     </div>
-                    <p className="catalog__rating-count">({rating})</p>
+                    <p className="catalog__rating-count">({prod.rating})</p>
                 </div>
             </div>
         </div>
