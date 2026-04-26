@@ -4,13 +4,13 @@ import CartProgress from '../components/cartProgress/cartProgress';
 import CartContent from '../components/cartContent/cartContent';
 import Footer from '../components/footer/footer';
 
-const Cart = () => {
+const Cart = ({ cards }) => {
     return (
         <React.Fragment>
             <Header />
             <main className="main">
                 <CartProgress />
-                <CartContent />
+                <CartContent cards={cards}/>
             </main>
             <Footer />
         </React.Fragment>

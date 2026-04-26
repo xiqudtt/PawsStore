@@ -81,7 +81,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home cards={cards}/>} />
           <Route path="/product/:id" element={<Product cards={cards}/>} />
-          <Route path="/Cart" element={<Cart />} />
+          <Route path="/Cart" element={<Cart cards={cards}/>} />
         </Routes>
       </BrowserRouter>
     </div>
