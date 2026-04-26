@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Inter';
-  src: url('./fonts/InterVariableFont.ttf') format('truetype-variations');
+  src: url('./fonts/InterVariableFont.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -27,15 +27,18 @@
 }
 
 * {
-  font-family: var(--default-font-family);
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter';
   background-color: #F9FAFB;
+}
+
+img {
+  display: block;
 }
 
 .wrapper {

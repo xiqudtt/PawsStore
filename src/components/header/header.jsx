@@ -6,8 +6,10 @@ import Nav from '../nav/nav.jsx';
 import Burger from "../burger/burger.jsx";
 import BurgerMenu from "../burgerMenu/burgerMenu.jsx";
 import "./header.css"
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   const [toggleBurger, setToggleBurger] = useState(false);
 
   return (
@@ -18,7 +20,7 @@ const Header = () => {
             <div className="header__logo-border">
               <LuPawPrint className="header__logo-icon" />
             </div>
-            <h1 className="header__logo-text">PawsStore</h1>
+            <h1 className="header__logo-text" onClick={() => navigate('/')}>PawsStore</h1>
           </div >
           <Nav />
           <div className="header__actions">

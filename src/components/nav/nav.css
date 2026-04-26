@@ -16,7 +16,7 @@
 }
 
 .header__menu-link:hover {
-  color: var(--color-orange-500);
+  color: var(--orange);
 }
 
 @media (max-width: 1024px) {

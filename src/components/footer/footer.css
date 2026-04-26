@@ -135,11 +135,11 @@
 }
 
 .footer__bottom {
-  border-top: 1px solid #1E2939;
-  padding: 16px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-top: 1px solid #1E2939;
+  padding: 16px 0;
 }
 
 .footer__rights {
@@ -184,7 +184,7 @@
 
   .footer__bottom {
     flex-direction: column;
-    gap: 15px;
+    gap: 35px;
   }
 
   .footer__rights {

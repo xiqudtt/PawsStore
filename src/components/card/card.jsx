@@ -2,12 +2,12 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { LuShoppingCart } from "react-icons/lu";
 import './card.css';
 
-const Card = ({ price, title, img, rating }) => {
+const Card = ({ onClick, price, title, img, rating }) => {
     const filledCount = Math.floor(rating);
     const emptyCount = 5 - filledCount;
 
     return (
-        <div className="catalog__cards-item">
+        <div className="catalog__cards-item" onClick={onClick}>
             <div className="catalog__cards-top">
                 <img className="catalog__cards-img" src={img} alt="" />
                 <p className="catalog__cards-price">${price}</p>
