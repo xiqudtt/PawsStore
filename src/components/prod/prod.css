@@ -84,6 +84,22 @@
     gap: 4px;
 }
 
+.half-star-clip {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.half-star-fill {
+    clip-path: inset(0 50% 0 0);
+    width: 100%;
+    height: 100%;
+    color: var(--yellow) !important;
+}
+
 .prod__rating-icon--fill,
 .prod__rating-icon--outline {
     width: 24px;

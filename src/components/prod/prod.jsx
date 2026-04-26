@@ -9,17 +9,36 @@ import { Navigation, Pagination } from 'swiper/modules';
 import './prod.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination'
+import 'swiper/css/pagination';
 
-const Prod = ({ prod }) => {
+export const Prod = ({ prod }) => {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
 
-    const filledCount = Math.floor(prod.rating);
-    const emptyCount = 5 - filledCount;
+    if (!prod) {
+        return <div className="container">Товар не найден</div>;
+    }
 
-    const filledStars = [...Array(filledCount)].map((_, i) => <AiFillStar key={i} className="prod__rating-icon--fill" />);
-    const emptyStars = [...Array(emptyCount)].map((_, i) => <AiOutlineStar key={i} className="prod__rating-icon--outline" />);
+    const fullStarsCount = Math.floor(prod.rating);
+    const hasHalfStar = prod.rating % 1 >= 0.25 && prod.rating % 1 <= 0.75;
+    const emptyStarsCount = 5 - fullStarsCount - (hasHalfStar ? 1 : 0);
+
+    // Исправленный компонент половинки звезды
+    const HalfStar = () => (
+        <span className="half-star-clip">
+            <AiFillStar className="prod__rating-icon--fill half-star-fill" />
+        </span>
+    );
+
+    const filledStars = [...Array(fullStarsCount)].map((_, i) => 
+        <AiFillStar key={`full-${i}`} className="prod__rating-icon--fill" />
+    );
+    
+    const halfStar = hasHalfStar ? <HalfStar key="half" /> : null;
+    
+    const emptyStars = [...Array(emptyStarsCount)].map((_, i) => 
+        <AiOutlineStar key={`empty-${i}`} className="prod__rating-icon--outline" />
+    );
 
     return (
         <section className="prod">
@@ -37,16 +56,18 @@ const Prod = ({ prod }) => {
                             }}
                             pagination={{ clickable: true }}
                             loop={true}
-                            onBeforeInit={swiper => {
+                            onBeforeInit={(swiper) => {
                                 swiper.params.navigation.prevEl = prevRef.current;
                                 swiper.params.navigation.nextEl = nextRef.current;
+                                swiper.navigation.init();
+                                swiper.navigation.update();
                             }}
                         >
-                            {prod.img.map((img, idx) =>
+                            {prod.img && prod.img.map((img, idx) => (
                                 <SwiperSlide key={idx} className="prod__slider-item">
                                     <img className="prod__slider-img" src={img} alt={`Slide ${idx}`} />
                                 </SwiperSlide>
-                            )}
+                            ))}
                             <LuChevronLeft ref={prevRef} className="prev-btn prod__slider-arrow" />
                             <LuChevronRight ref={nextRef} className="next-btn prod__slider-arrow" />
                         </Swiper>
@@ -55,8 +76,12 @@ const Prod = ({ prod }) => {
                         <p className="prod__category">Travel & Carriers</p>
                         <h2 className="prod__title">{prod.title}</h2>
                         <div className="prod__rating">
-                            <div className="prod__rating-icons">{filledStars}{emptyStars}</div>
-                            <span className="prod__rating-count">{filledCount} out of {5} stars</span>
+                            <div className="prod__rating-icons">
+                                {filledStars}
+                                {halfStar}
+                                {emptyStars}
+                            </div>
+                            <span className="prod__rating-count">{prod.rating} out of 5 stars</span>
                         </div>
                         <p className="prod__price">${prod.price}</p>
                         <div className="prod__highlights">
@@ -65,7 +90,9 @@ const Prod = ({ prod }) => {
                         </div>
                         <div className="prod__description">
                             <h3 className="prod__description-title">Description</h3>
-                            <p className="prod__description-text">Soft-sided pet carrier approved for airline cabin use. Features mesh panels for ventilation, padded shoulder strap, and collapsible design for easy storage. Interior fleece pad provides comfort. Meets TSA requirements for in-cabin pet travel.</p>
+                            <p className="prod__description-text">
+                                {prod.description || "Soft-sided pet carrier approved for airline cabin use. Features mesh panels for ventilation, padded shoulder strap, and collapsible design for easy storage. Interior fleece pad provides comfort. Meets TSA requirements for in-cabin pet travel."}
+                            </p>
                         </div>
                         <div className="prod__amount">
                             <p className="prod__amount-text">Quantity:</p>
@@ -88,7 +115,7 @@ const Prod = ({ prod }) => {
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
 export default Prod;

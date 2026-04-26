@@ -16,7 +16,7 @@ const cards = [
       price: 54.99, 
       title: "Birline-Approved Pet Travel Carrier", 
       img: [img1, img1, img1], 
-      rating: 2,
+      rating: 4.5,
       highlights: ["Dimensions: 18 x 11 x 11 inches", "Material: Polyester with Mesh Panels", "Weight Limit: Up to 15 lbs"],
       specs: [
         { title: "Dimensions", description: "18 x 11 x 11 inches" },
