@@ -1,4 +1,5 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Highlights from "../highlights/highlights";
 import Counter from "../counter/counter";
 import Specs from "../specs/specs";
@@ -6,6 +7,8 @@ import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { LuShoppingCart, LuBox, LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
+import { useCart } from '../../contexts/CartContext';
+import { usePopup } from '../../contexts/PopupContext';
 import './prod.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -14,6 +17,10 @@ import 'swiper/css/pagination';
 export const Prod = ({ prod }) => {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
+    const navigate = useNavigate();
+    const { addToCart } = useCart();
+    const { showAddToCartPopup } = usePopup();
+    const [quantity, setQuantity] = useState(1);
 
     if (!prod) {
         return <div className="container">Товар не найден</div>;
@@ -23,7 +30,6 @@ export const Prod = ({ prod }) => {
     const hasHalfStar = prod.rating % 1 >= 0.25 && prod.rating % 1 <= 0.75;
     const emptyStarsCount = 5 - fullStarsCount - (hasHalfStar ? 1 : 0);
 
-    // Исправленный компонент половинки звезды
     const HalfStar = () => (
         <span className="half-star-clip">
             <AiFillStar className="prod__rating-icon--fill half-star-fill" />
@@ -39,6 +45,19 @@ export const Prod = ({ prod }) => {
     const emptyStars = [...Array(emptyStarsCount)].map((_, i) => 
         <AiOutlineStar key={`empty-${i}`} className="prod__rating-icon--outline" />
     );
+
+    const handleAddToCart = () => {
+        const productToAdd = {
+            ...prod,
+            quantity: quantity
+        };
+        addToCart(productToAdd, quantity);
+        showAddToCartPopup(prod.title, quantity);
+    };
+
+    const handleQuantityChange = (newQuantity) => {
+        setQuantity(newQuantity);
+    };
 
     return (
         <section className="prod">
@@ -96,9 +115,12 @@ export const Prod = ({ prod }) => {
                         </div>
                         <div className="prod__amount">
                             <p className="prod__amount-text">Quantity:</p>
-                            <Counter />
+                            <Counter 
+                                count={quantity}
+                                onQuantityChange={handleQuantityChange}
+                            />
                         </div>
-                        <button className="prod__btn">
+                        <button className="prod__btn" onClick={handleAddToCart}>
                             <LuShoppingCart className="prod__btn-cart" />
                             <span className="prod__btn-text">Add to Cart</span>
                         </button>

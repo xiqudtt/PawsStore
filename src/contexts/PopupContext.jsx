@@ -7,10 +7,14 @@ export const usePopup = () => useContext(PopupContext);
 const PopupProvider = ({ children }) => {
     const [popup, setPopup] = useState({ isVisible: false, message: "" });
 
-    const showAddToCartPopup = (productTitle) => {
+    const showAddToCartPopup = (productTitle, quantity = 1) => {
+        const messageText = quantity > 1 
+            ? `Added ${quantity} ${productTitle}s to cart`
+            : `Added 1 ${productTitle} to cart`;
+        
         setPopup({
             isVisible: true,
-            message: `Added 1 ${productTitle} to cart`
+            message: messageText
         });
     };
 

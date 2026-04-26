@@ -92,7 +92,10 @@
 }
 
 .progress__steps-svg {
+    width: 16px;
+    height: 16px;
     color: var(--light7);
+    flex-shrink: 0;
 }
 
 .progress__promotion {

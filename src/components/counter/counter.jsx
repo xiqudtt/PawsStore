@@ -1,37 +1,40 @@
 import "./counter.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { LuPlus, LuMinus } from "react-icons/lu";
 
-// Добавляем пропсы: 
-// count - текущее значение
-// increment/decrement - функции для изменения
-const Counter = ({ count: propCount, increment, decrement }) => {
-    // Внутреннее состояние для обычных карточек на сайте
-    const [localCount, setLocalCount] = useState(1);
-
-    // Проверяем, управляется ли компонент извне (есть ли пропсы)
+const Counter = ({ count: propCount, onQuantityChange, min = 1, max = 99 }) => {
+    const [localCount, setLocalCount] = useState(propCount || 1);
+    
     const isControlled = propCount !== undefined;
-
-    // Определяем, какое значение отображать
     const displayCount = isControlled ? propCount : localCount;
 
+    useEffect(() => {
+        if (isControlled && propCount !== undefined) {
+            setLocalCount(propCount);
+        }
+    }, [propCount, isControlled]);
+
     const countDecrement = (e) => {
-        if (isControlled) {
-            // Если пропсы есть, вызываем функцию родителя
-            decrement();
+        e.stopPropagation();
+        const newCount = displayCount - 1;
+        if (newCount < min) return;
+        
+        if (isControlled && onQuantityChange) {
+            onQuantityChange(newCount);
         } else {
-            // Если пропсов нет, работаем со своим стейтом (старая логика)
-            setLocalCount(prev => (prev > 1 ? prev - 1 : 1));
+            setLocalCount(prev => (prev > min ? prev - 1 : min));
         }
     };
 
     const countIncrement = (e) => {
-        if (isControlled) {
-            // Если пропсы есть, вызываем функцию родителя
-            increment();
+        e.stopPropagation();
+        const newCount = displayCount + 1;
+        if (newCount > max) return;
+        
+        if (isControlled && onQuantityChange) {
+            onQuantityChange(newCount);
         } else {
-            // Если пропсов нет, работаем со своим стейтом
-            setLocalCount(prev => prev + 1);
+            setLocalCount(prev => (prev < max ? prev + 1 : max));
         }
     };
 

@@ -5,12 +5,10 @@ import './Popup.css';
 const Popup = ({ isVisible, message, onClose }) => {
 
     useEffect(() => {
-
         if (isVisible) {
             const timer = setTimeout(() => onClose(), 3000);
             return () => clearTimeout(timer);
         }
-        
     }, [isVisible, onClose]);
 
     return (

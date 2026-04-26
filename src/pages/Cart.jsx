@@ -10,7 +10,6 @@ const Cart = () => {
     let { prods } = useCart();
 
     const hasItems = prods && prods.length > 0;
-    console.log(prods);
 
     return (
         <React.Fragment>

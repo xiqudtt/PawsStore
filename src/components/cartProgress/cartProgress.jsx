@@ -1,7 +1,7 @@
 import "./cartProgress.css";
-import React from 'react'
+import React from 'react';
 import { HiOutlineTag } from "react-icons/hi2";
-import { useLocation } from "react-router-dom";
+import { LuChevronRight } from "react-icons/lu";
 
 const CartProgress = () => {
     const status = "✓ Qualified!";
@@ -21,14 +21,14 @@ const CartProgress = () => {
                                     <span className="progress__steps-num">1</span>
                                 </div>
                                 <p className="progress__steps-name">Cart</p>
-                                <svg className="progress__steps-svg lucide lucide-chevron-right w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+                                <LuChevronRight className="progress__steps-svg" />
                             </li>
                             <li className="progress__steps-item">
                                 <div className="progress__steps-border">
                                     <span className="progress__steps-num">2</span>
                                 </div>
                                 <p className="progress__steps-name">Checkout</p>
-                                <svg className="progress__steps-svg lucide lucide-chevron-right w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+                                <LuChevronRight className="progress__steps-svg" />
                             </li>
                             <li className="progress__steps-item">
                                 <div className="progress__steps-border">
