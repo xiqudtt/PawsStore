@@ -1,0 +1,21 @@
+.catalog__inner {
+    display: grid;
+    grid-template-areas: 'filter sorting' 'filter products';
+    gap: 24px;
+    grid-template-columns: 256px 1fr;
+    grid-template-rows: 70px 1fr;
+    padding: 32px 0;
+}
+
+@media (max-width: 1024px) {
+    .catalog__inner {
+        grid-template-areas: 'sorting sorting' 'filter filter' 'products products';
+        gap: 12px;
+    }
+}
+
+@media (max-width: 640px) {
+    .catalog__inner {
+        grid-template-rows: 129px 1fr;
+    }
+}

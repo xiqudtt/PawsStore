@@ -1,29 +1,44 @@
+import { useState } from "react";
 import { LuPawPrint } from "react-icons/lu";
-import { SlMagnifier } from "react-icons/sl";
+import { RiSearchLine } from "react-icons/ri";
 import { LuShoppingCart } from "react-icons/lu";
+import Nav from '../nav/nav.jsx';
+import Burger from "../burger/burger.jsx";
+import BurgerMenu from "../burgerMenu/burgerMenu.jsx";
 import "./header.css"
+import { useNavigate } from "react-router-dom";
 
-export const Header = () => {
+const Header = () => {
+  const navigate = useNavigate();
+  const [toggleBurger, setToggleBurger] = useState(false);
+
   return (
     <header className="header">
       <div className="container">
-        <div className="logo-section">
-          <div className="circle">
-            <LuPawPrint className="LuPawPrint"/>
+        <div className="header__inner">
+          <div className="header__logo">
+            <div className="header__logo-border">
+              <LuPawPrint className="header__logo-icon" />
+            </div>
+            <h1 className="header__logo-text" onClick={() => navigate('/')}>PawsStore</h1>
+          </div >
+          <Nav />
+          <div className="header__actions">
+            <div className="header__actions-border">
+              <RiSearchLine className="header__actions-icon" />
+            </div>
+            <div className="header__actions-border">
+              <LuShoppingCart className="header__actions-icon" />
+            </div>
+            <div className="header__actions-border header__actions-border--burger" onClick={() => setToggleBurger(!toggleBurger)}>
+              <Burger toggleBurger={toggleBurger} setToggleBurger={setToggleBurger} />
+            </div>
           </div>
-          <div className="logo">PawsStore</div>
         </div>
-        <nav className="nav-menu">
-          <a href="#">Shop</a>
-          <a href="#">Categories</a>
-          <a href="#">Deals</a>
-          <a href="#">About</a>
-        </nav>
-        <div className="actions">
-          <SlMagnifier className="search-icon"/>
-          <LuShoppingCart className="cart-icon"/>
-        </div>
+        <BurgerMenu toggleBurger={toggleBurger} />
       </div>
     </header>
   );
 }
+
+export default Header;

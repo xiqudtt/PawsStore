@@ -1,5 +1,58 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/InterVariableFont.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --dark1: #0A0A0A;
+  --dark2: #101828;
+  --dark3: #364153;
+  --dark4: #4A5565;
+
+  --light1: #FFFFFF;
+  --light2: #FFF7ED;
+  --light3: #EFF6FF;
+  --light4: #E5E7EB;
+  --light5: #D1D5DC;
+  --light6: #99A1AF;
+  --light7: #6A7282;
+
+  --orange: #FF6900;
+  --yellow: #FDC700;
+  --gradient: linear-gradient(to right, var(--orange) 0%, #F6339A 100%);
+  
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
+  font-family: 'Inter';
+  background-color: #F9FAFB;
+}
+
+img {
+  display: block;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1265px;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+.main {
+  flex-grow: 1;
 }
