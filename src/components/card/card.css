@@ -1,25 +1,37 @@
 .catalog__cards-item {
-    border: 1px solid #E5E7EB;
-    background-color: #FFFFFF;
+    border: 1px solid var(--light4);
+    background-color: var(--light1);
     border-radius: 10px;
-    transition: transform .3s ease;
+    transition: all .3s ease;
     cursor: pointer;
 }
 
 .catalog__cards-item:hover {
+    border-color: var(--orange);
     transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-.catalog__cards-presentation {
+.catalog__cards-top {
     position: relative;
-    height: 364px;
-    margin-bottom: 18px;
-    padding: 12px;
-    border: 1px solid #E5E7EB;  
+    aspect-ratio: 4 / 5;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background-repeat: no-repeat;
-    background-size: cover;
+    overflow: hidden;
+}
+
+.catalog__cards-img {
+    display: block;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .3s ease;
+}
+
+.catalog__cards-item:hover .catalog__cards-img {
+    transform: scale(1.2);
 }
 
 .catalog__cards-price {
@@ -32,8 +44,8 @@
     font-size: 14px;
     font-weight: 700;
     line-height: 20px;
-    color: #FFFFFF;
-    background-color: #FF6900;
+    color: var(--light1);
+    background-color: var(--orange);
     text-align: center;
     box-shadow: 0px 4px 6px -4px rgba(0, 0, 0, 0.1), 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
     opacity: 1;
@@ -47,36 +59,43 @@
 }
 
 .catalog__info {
+    position: absolute;
+    bottom: -50%;
+    left: 0;
+    right: 0;
     opacity: 0;
-    visibility: hidden;
-    max-width: 260px;
     padding: 12px;
-    margin-top: 190px;
-    border-radius: 10px;
-    background-color: #fff;
+    visibility: hidden;
     transition: all .3s ease;
-    transform: translateY(10px);
+    z-index: 1;
+}
+
+.catalog__info-inner {
+    padding: 12px;
+    border-radius: 10px;
+    background-color: var(--light1);
 }
 
 .catalog__cards-item:hover .catalog__info {
+    bottom: 0;
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
 }
 
 .catalog__info-title {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 20px;
-    color: #101828;
+    letter-spacing: -0.15px;
+    color: var(--dark2);
 }
 
 .catalog__info-rating {
     display: flex;
     align-items: center;
-    gap: 5px;
-    margin-bottom: 16px;
+    gap: 6px;
+    margin-bottom: 15px;
 }
 
 .catalog__info-icons {
@@ -86,7 +105,7 @@
 }
 
 .catalog__info-icon {
-    color: #FDC700;
+    color: var(--yellow);
     width: 14px;
     height: 14px;
 }
@@ -95,34 +114,54 @@
     font-size: 12px;
     font-weight: 400;
     line-height: 16px;
-    color: #6A7282;
+    letter-spacing: 0;
+    color: var(--light7);
 }
 
-.catalog__info-ui {
+.catalog__info-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .catalog__info-price {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     line-height: 21px;
-    color: #FF6900;
+    color: var(--orange);
 }
 
 .catalog__info-btn {
-    padding: 6px;
-    border: 1px solid #FF6900;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
     border-radius: 50%;
-    background-color: #FF6900;
-    cursor: pointer;
+    background-color: var(--orange);
+    cursor: default;
+    transition: all .2s ease;
+}
+
+.catalog__info-btn:hover {
+    background-color: oklch(64.6% .222 41.116);
+    transform: scale(1.1);
 }
 
 .catalog__info-img {
-    width: 25px;
-    height: 21px;
-    color: #fff;
+    width: 20px;
+    height: 20px;
+    color: var(--light1);
+    transition: transform .2s ease;
+}
+
+.catalog__cards-bottom {
+    padding: 16px 0;
+}
+
+.catalog__cards-item:hover .catalog__cards-bottom {
+    opacity: 0.5;
 }
 
 .catalog__cards-title {
@@ -131,23 +170,14 @@
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
-    color: #101828;
-}
-
-.catalog__cards-item:hover .catalog__cards-title {
-    opacity: 0.5;
+    color: var(--dark2);
 }
 
 .catalog__rating {
     display: flex;
     align-items: center;
     gap: 5px;
-    margin-bottom: 16px;
     margin-left: 16px;
-}
-
-.catalog__cards-item:hover .catalog__rating {
-    opacity: 0.5;
 }
 
 .catalog__rating-icons {
@@ -156,7 +186,7 @@
 }
 
 .catalog__rating-icon {
-    color: #FDC700;
+    color: var(--yellow);
     width: 14px;
     height: 14px;
 }
@@ -166,5 +196,5 @@
     font-size: 12px;
     font-weight: 400;
     line-height: 16px;
-    color: #6A7282;
+    color: var(--light7);
 }

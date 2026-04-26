@@ -7,5 +7,5 @@
     font-size: 18px;
     font-weight: 600;
     line-height: 27px;
-    color: #101828;
+    color: var(--dark2);
 }

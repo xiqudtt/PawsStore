@@ -1,20 +1,26 @@
 .header__menu-list {
   display: flex;
-  gap: 30px;
+  gap: 32px;
   list-style: none;
-}
-
-.header__menu-item {
-  font-size: 16px;
-  font-weight: var(--font-weight-normal);
+  justify-content: center;
 }
 
 .header__menu-link {
-  color: var(--color-gray-700);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.31px;
+  color: #364153;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .header__menu-link:hover {
-  color: var(--color-orange-500);
+  color: var(--orange);
+}
+
+@media (max-width: 1024px) {
+  .header__menu {
+    display: none;
+  }
 }

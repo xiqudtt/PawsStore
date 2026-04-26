@@ -1,7 +1,7 @@
 import './range.css';
 
 const Range = ({ title1, title2, filters, setFilters }) => {
-    const handlePriceChange = (key, value) => {
+    const priceChange = (key, value) => {
         setFilters(prev => ({
             ...prev,
             priceRange: { ...prev.priceRange, [key]: value }
@@ -14,7 +14,7 @@ const Range = ({ title1, title2, filters, setFilters }) => {
                 <h4 className="catalog__filter-size">{title1}</h4>
                 <input
                     value={filters.priceRange.min}
-                    onChange={(e) => handlePriceChange("min", e.target.value)}
+                    onChange={(e) => priceChange("min", e.target.value)}
                     type="text"
                     className="catalog__filter-count"
                 />
@@ -24,7 +24,7 @@ const Range = ({ title1, title2, filters, setFilters }) => {
                 <h4 className="catalog__filter-size">{title2}</h4>
                 <input
                     value={filters.priceRange.max}
-                    onChange={(e) => handlePriceChange("max", e.target.value)}
+                    onChange={(e) => priceChange("max", e.target.value)}
                     type="text"
                     className="catalog__filter-count"
                 />

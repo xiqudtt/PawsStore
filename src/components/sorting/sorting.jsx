@@ -1,24 +1,31 @@
-import React, { useEffect, useState } from 'react'
 import './sorting.css';
+import { FiSliders } from "react-icons/fi";
 
-const Sorting = ({ count, sortType, setSortType }) => {
+const Sorting = ({ count, sortType, setSortType, toggleFilter, setToggleFilter }) => {
 
     return (
         <div className="catalog__sorting">
-            <p className="catalog__sorting-count">{count} products</p>
+            <div className="catalog__sorting-left-side">
+                <button className={"catalog__sorting-button " + (toggleFilter ? "catalog__sorting-button--active" : "")} onClick={() => setToggleFilter(!toggleFilter)}>
+                    <FiSliders className="catalog__sorting-icon" />
+                    <h2 className="catalog__sorting-title">Filters</h2>
+                </button>
+                <p className="catalog__sorting-count">{count} products</p>
+            </div>
             <div className="catalog__sort">
                 <p className="catalog__sort-title">Sort by:</p>
                 <div className="catalog__sort-select-wrapper">
                     <select value={sortType} onChange={(e) => setSortType(e.target.value)} className="catalog__sort-select">
-                        <option value="name" className="catalog__sort-option">Name (A-Z)</option>
-                        <option value="rating" className="catalog__sort-option">Rating (0-5)</option>
-                        <option value="price" className="catalog__sort-option">Price</option>
+                        <option value="name(a-z)" className="catalog__sort-option">Name (A-Z)</option>
+                        <option value="name(z-a)" className="catalog__sort-option">Name (Z-A)</option>
+                        <option value="priceLowToHigh" className="catalog__sort-option">Price (Low to High)</option>
+                        <option value="priceHighToLow" className="catalog__sort-option">Price (High to Low)</option>
                     </select>
                 </div>
             </div>
         </div>
     )
-    
+
 }
 
 export default Sorting;

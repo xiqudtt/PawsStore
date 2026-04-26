@@ -1,18 +1,28 @@
-import React from 'react'
 import './checkbox.css'
 
-const Checkbox = ({ option, setRating, value, activeRating }) => {
-    const toggleFilter = (e) => {
-        setRating(e.target.checked ? value : 0);
-    };
+const Checkbox = ({ option, value, filters, setFilters }) => {
+
+    // данная функция нужна для того, чтобы при включении нескольких пунктов фильтрации по рейтингу, применялась только последняя фильтрация
+    const rangeFilters = (e) => {
+        let result;
+
+        if (e.target.checked) {
+            result = [...filters.rating, value]
+        }
+
+        else {
+            result = filters.rating.filter(val => val !== value);
+        }
+
+        setFilters(prev => ({ ...prev, rating: result }))
+    }
 
     return (
         <div className="catalog__filter-checkbox">
             <input
                 className="catalog__filter-input"
                 type="checkbox"
-                checked={activeRating === value}
-                onChange={toggleFilter}
+                onChange={rangeFilters}
             />
             <p className="catalog__filter-text">{option}</p>
         </div>
