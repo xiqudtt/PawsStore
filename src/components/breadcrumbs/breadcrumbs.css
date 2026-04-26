@@ -1,0 +1,40 @@
+.breadcrumbs {
+    padding: 16.5px;
+    background-color: var(--light1);
+    border-block: 1px solid var(--light4);
+}
+
+.breadcrumbs__menu-list {
+    display: flex;
+    gap: 8px;
+}
+
+.breadcrumbs__menu-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.breadcrumbs__menu-link {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.15px;
+    color: var(--dark4);
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+.breadcrumbs__menu-link:last-child {
+    color: var(--dark2);
+}
+
+.breadcrumbs__menu-link:not(:last-child):hover {
+    color: var(--orange);
+}
+
+.breadcrumbs__menu-arrow {
+    width: 16px;
+    height: 16px;
+    color: var(--light6);
+}
