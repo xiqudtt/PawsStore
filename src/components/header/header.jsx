@@ -28,7 +28,7 @@ const Header = () => {
               <RiSearchLine className="header__actions-icon" />
             </div>
             <div className="header__actions-border">
-              <LuShoppingCart className="header__actions-icon" />
+              <LuShoppingCart className="header__actions-icon" onClick={() => navigate('/Cart')}/>
             </div>
             <div className="header__actions-border header__actions-border--burger" onClick={() => setToggleBurger(!toggleBurger)}>
               <Burger toggleBurger={toggleBurger} setToggleBurger={setToggleBurger} />

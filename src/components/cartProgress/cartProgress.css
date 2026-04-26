@@ -1,0 +1,138 @@
+.progress {
+    padding-block: 32px;
+    background-color: var(--light1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.progress__steps {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.progress__steps-title {
+    margin-bottom: 7px;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: 0.37px;
+    color: transparent;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.progress__steps-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.31px;
+    color: var(--dark4);
+}
+
+.progress__steps-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+}
+
+.progress__steps-item,
+.progress__steps-item--active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.progress__steps-border {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--light7);
+    background-color: var(--light5);
+    opacity: 0.5;
+}
+
+.progress__steps-item--active .progress__steps-border {
+    color: var(--light1);
+    background-color: var(--orange);
+    opacity: 1;
+}
+
+.progress__steps-num {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.15px;
+    color: var(--light7);
+    opacity: 0.5;
+}
+
+.progress__steps-item--active .progress__steps-num {
+    color: var(--light1);
+    opacity: 1;
+}
+
+.progress__steps-name {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.15px;
+    opacity: 0.5;
+}
+
+.progress__steps-item--active .progress__steps-name {
+    opacity: 1;
+}
+
+.progress__steps-svg {
+    color: var(--light7);
+}
+
+.progress__promotion {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #FFEDD4;
+    border-radius: 10px;
+    background: linear-gradient(var(--light2), #FDF2F8);
+}
+
+.progress__promotion-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.progress__promotion-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--orange);
+}
+
+.progress__promotion-text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.15px;
+    color: var(--dark3);
+}
+
+.progress__promotion-price {
+    color: var(--orange);
+}
+
+.progress__promotion-status {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.15px;
+    color: #00A63E;
+}

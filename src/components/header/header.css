@@ -3,6 +3,7 @@
   top: 0;
   background-color: var(--light1);
   z-index: 10;
+  border-bottom: 1px solid var(--light4);
 }
 
 .header__inner {
@@ -67,7 +68,7 @@
 }
 
 .header__actions-border:hover {
-  background-color: var(--light4-op);
+  background-color: var(--light4);
 }
 
 .header__actions-border--burger {
