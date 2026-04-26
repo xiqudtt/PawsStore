@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Header from '../components/header/header.jsx';
 import Footer from '../components/footer/footer.jsx';
 import Prod from '../components/prod/prod.jsx'
+import Breadcrumbs from '../components/breadcrumbs/breadcrumbs.jsx';
 
 const Product = ({ cards }) => {
     const { id } = useParams();
@@ -12,6 +13,7 @@ const Product = ({ cards }) => {
         <React.Fragment>
             <Header />
             <main className="main">
+                <Breadcrumbs title={product.title}/>
                 <Prod prod={product}></Prod>
             </main>
             <Footer />
