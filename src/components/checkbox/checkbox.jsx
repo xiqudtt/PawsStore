@@ -2,7 +2,6 @@ import './checkbox.css'
 
 const Checkbox = ({ option, value, filters, setFilters }) => {
 
-    // данная функция нужна для того, чтобы при включении нескольких пунктов фильтрации по рейтингу, применялась только последняя фильтрация
     const rangeFilters = (e) => {
         let result;
 

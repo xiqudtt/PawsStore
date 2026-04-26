@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from '../components/header/header.jsx';
-import About from '../components/about/about.jsx';
-import Catalog from '../components/catalog/catalog.jsx';
-import Footer from '../components/footer/footer.jsx';
+import Header from '../components/header/header';
+import About from '../components/about/about';
+import Catalog from '../components/catalog/catalog';
+import Footer from '../components/footer/footer';
 
 const Home = ({ cards }) => {
     return (

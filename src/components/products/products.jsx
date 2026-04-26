@@ -1,5 +1,5 @@
 import './products.css';
-import Card from '../card/card.jsx';
+import Card from '../card/card';
 import { useNavigate } from 'react-router-dom';
 
 const Products = ({ prods }) => {

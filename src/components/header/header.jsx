@@ -2,9 +2,9 @@ import { useState } from "react";
 import { LuPawPrint } from "react-icons/lu";
 import { RiSearchLine } from "react-icons/ri";
 import { LuShoppingCart } from "react-icons/lu";
-import Nav from '../nav/nav.jsx';
-import Burger from "../burger/burger.jsx";
-import BurgerMenu from "../burgerMenu/burgerMenu.jsx";
+import Nav from '../nav/nav';
+import Burger from "../burger/burger";
+import BurgerMenu from "../burgerMenu/burgerMenu";
 import "./header.css"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";

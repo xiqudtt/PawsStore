@@ -1,21 +1,19 @@
 import React, { useState} from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from './pages/Home.jsx';
-import Product from "./pages/Product.jsx";
-import Cart from "./pages/Cart.jsx";
+import Home from './pages/Home';
+import Product from "./pages/Product";
+import Cart from "./pages/Cart";
 import './App.css';
-import Popup from './components/Popup/Popup.jsx';
-import EmptyCart from "./components/emptyCart/emptyCart.jsx";
-import PopupProvider from './contexts/PopupContext.jsx';
+import Popup from './components/Popup/Popup';
+import EmptyCart from "./components/emptyCart/emptyCart";
+import PopupProvider from './contexts/PopupContext';
 
-// позже перепишем в виде get-запроса
 import img1 from "./img/image1.jpg";
 import img2 from "./img/image2.png";
 import img3 from "./img/image3.jpg";
 import img4 from "./img/image4.jpg";
-import CartProvider from './contexts/CartContext.jsx';
+import CartProvider from './contexts/CartContext';
 
-// позже перепишем в виде get-запроса
 const cards = [
   {
     id: 1,

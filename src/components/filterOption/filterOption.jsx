@@ -1,5 +1,5 @@
-import Checkbox from '../checkbox/checkbox.jsx';
-import Range from '../range/range.jsx';
+import Checkbox from '../checkbox/checkbox';
+import Range from '../range/range';
 import './filterOption.css';
 
 const FilterOption = ({ title, filters, setFilters, type }) => {

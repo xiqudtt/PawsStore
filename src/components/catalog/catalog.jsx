@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
-import Filter from '../filter/filter.jsx';
-import Sorting from '../sorting/sorting.jsx';
-import Products from '../products/products.jsx';
+import Filter from '../filter/filter';
+import Sorting from '../sorting/sorting';
+import Products from '../products/products';
 import './catalog.css';
 
 const Catalog = ({ cards }) => {

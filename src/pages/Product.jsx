@@ -1,9 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import Header from '../components/header/header.jsx';
-import Footer from '../components/footer/footer.jsx';
-import Prod from '../components/prod/prod.jsx'
-import Breadcrumbs from '../components/breadcrumbs/breadcrumbs.jsx';
+import Header from '../components/header/header';
+import Footer from '../components/footer/footer';
+import Prod from '../components/prod/prod'
+import Breadcrumbs from '../components/breadcrumbs/breadcrumbs';
 
 const Product = ({ cards }) => {
     const { id } = useParams();
